@@ -1,9 +1,4 @@
 #Database clean up. Delete everything and then seed.
-require 'database_cleaner'
-
-DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.clean
-
 # Testing User - DEVISE
 User.create(email: "test@test.com", password: "test123", password_confirmation: "test123")
 User.create(email: "ncuesta@info.unlp.edu.ar", password: "ncuesta@info.unlp.edu.ar", password_confirmation: "ncuesta@info.unlp.edu.ar")
