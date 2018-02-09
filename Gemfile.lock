@@ -71,7 +71,6 @@ GEM
     crass (1.0.3)
     data-confirm-modal (1.6.1)
       railties (>= 3.0)
-    database_cleaner (1.6.2)
     date_validator (0.9.0)
       activemodel
       activesupport
@@ -217,7 +216,6 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   data-confirm-modal
-  database_cleaner
   date_validator (~> 0.9.0)
   devise
   figaro
