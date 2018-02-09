@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="col-md-5">
+    <div class="form-area">
+      <%= form_with(model: evaluation_result, local: true) do |form| %>
+        <br style="clear:both">
+        <% if evaluation_result.errors.any? %>
+          <div id="error_explanation">
+            <h7>No se pudo guardar. Hay <%= pluralize(@evaluation_result.errors.count, "error") %> :</h7>
+            <ul>
+              <% evaluation_result.errors.full_messages.each do |message| %>
+                <li class="text-danger"><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :student_id, class: "control-label" %>
+          <%= form.text_field :student_id, id: :evaluation_result_student_id, :disabled => true, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :evaluation_id, class: "control-label" %>
+          <%= form.text_field :evaluation_id, id: :evaluation_result_evaluation_id, :disabled => true, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :note, class: "control-label" %>
+          <%= form.number_field :note, id: :evaluation_result_note, class: "form-control" %>
+        </div>
+
+        <div class="modal-footer">
+          <%= link_to 'Cancelar', evaluation_result_path %>
+          <%= form.submit "Confirmar", class: "btn btn-default btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

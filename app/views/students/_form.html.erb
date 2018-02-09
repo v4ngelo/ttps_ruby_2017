@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="col-md-5">
+    <div class="form-area">
+      <%= form_with(model: student, local: true) do |form| %>
+        <br style="clear:both">
+        <% if @student.errors.any? %>
+          <div id="error_explanation">
+            <h7>No se pudo guardar. Hay <%= pluralize(@student.errors.count, "error") %> :</h7>
+            <ul>
+              <% @student.errors.full_messages.each do |message| %>
+                <li class="text-danger"><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group" >
+          <%= form.label :title, 'Año de Cursada', class: "control-label" %>
+          <%= form.collection_select(:course_id, @courses, :id, :anio,  {:include_blank => "Please select"}, {:class=>'btn btn-secondary dropdown-toggle form-control'}) %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :name, class: "control-label" %>
+          <%= form.text_field :name, id: :student_name, class: "form-control"  %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :surname, class: "control-label" %>
+          <%= form.text_field :surname, id: :student_surname, class: "form-control"  %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :dni, class: "control-label" %>
+          <%= form.text_field :dni, id: :student_dni, class: "form-control"  %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :student_number, class: "control-label" %>
+          <%= form.text_field :student_number, id: :student_student_number, class: "form-control"  %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :email, class: "control-label" %>
+          <%= form.text_field :email, id: :student_email, class: "form-control"  %>
+        </div>
+
+        <div class="actions">
+          <%= link_to 'Cancelar', students_path %>
+          <%= form.submit "Confirmar", class: "btn btn-default btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

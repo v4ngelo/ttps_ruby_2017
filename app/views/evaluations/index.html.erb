@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<br/>
+<h3 class="min-margin"> Evaluaciones </h3>
+
+<hr/>
+
+<div class="form-row min-margin">
+  <div class="min-margin">
+    <label class="control-label">Año de Cursada</label>
+  </div>
+
+  <%= form_with url: evaluations_path, method: :get, local: true do |e| %>
+    <div class="col-md-6 min-margin">
+      <%= collection_select(:course, :course_id, Course.all, :id, :anio,  {:include_blank => "Cursadas"}, {:class=>'btn btn-secondary dropdown-toggle'}) %>
+    </div>
+    <div class="col-md-6  min-margin">
+      <%= e.submit "Filtrar", class: "btn btn-default btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<hr/>
+
+<div class="min-margin">
+  <%= button_to "Nueva Evaluación", new_evaluation_path, :method => :get, class: "btn btn-primary min-margin right"%>
+</div>
+
+<table class="table table-striped table-sm table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th>Evaluacion</th>
+    <th>Fecha</th>
+    <th>Año de Cursada</th>
+    <th>Nota de Aprobación</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @evaluations.each do |evaluation| %>
+    <tr>
+      <td><%= evaluation.title %></td>
+      <td><%= evaluation.evaluation_date %></td>
+      <td><%= evaluation.course.anio %></td>
+      <td><%= evaluation.minimum_note %></td>
+      <td><%= button_to "Editar", edit_evaluation_path(evaluation.id), :method => :get, class: "btn btn-sm btn-info" %>
+      <td><%= link_to 'Eliminar', evaluation_path(evaluation), remote: true, :method => :delete,
+                      data: {confirm: "Quiere eliminar esta evaluación: #{evaluation.id} "}, :class => 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

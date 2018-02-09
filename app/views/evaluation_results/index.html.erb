@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="min-margin">Resultados</h3>
+<hr/>
+<table class="table table-striped table-sm table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Año de Cursada</th>
+    <th>Fecha de Evaluacion</th>
+    <th>Nota</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @evaluation_results.each do |evaluation_result| %>
+    <tr>
+      <td><%= evaluation_result.student.name %></td>
+      <td><%= evaluation_result.student.surname %></td>
+      <td><%= evaluation_result.evaluation.course.anio %></td>
+      <td><%= evaluation_result.evaluation.evaluation_date %></td>
+      <td><%= evaluation_result.note %></td>
+      <td><%= button_to "Editar", edit_evaluation_result_path(evaluation_result), :method => :get, class: "btn btn-sm btn-info" %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

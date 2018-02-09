@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="col-md-5">
+    <div class="form-area">
+      <%= form_with(model: @course, local: true, class: "form-area") do |form| %>
+        <br style="clear:both">
+        <% if @course.errors.any? %>
+          <div id="error_explanation">
+            <h7>No se pudo guardar. Hay <%= pluralize(@course.errors.count, "error") %> :</h7>
+            <ul>
+              <% @course.errors.full_messages.each do |message| %>
+                <li class="text-danger"><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :anio, 'Año', class: "control-label"%><br>
+          <%= form.text_field :anio, class: "form-control" %>
+        </div>
+
+        <div class="modal-footer">
+          <%= link_to 'Cancelar', courses_path %>
+          <%= form.submit "Confirmar", class: "btn btn-default btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

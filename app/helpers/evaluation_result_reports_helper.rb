@@ -1,0 +1,2 @@
+module EvaluationResultReportsHelper
+end

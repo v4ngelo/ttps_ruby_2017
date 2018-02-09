@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="col-md-5">
+    <div class="form-area">
+      <%= form_with(model: @evaluation, local: true) do |form| %>
+        <br style="clear:both">
+        <div class="form-group row">
+          <div class="col-md-12">
+            <% if @evaluation.errors.any? %>
+              <div id="error_explanation">
+                <h7>No se pudo guardar. Hay <%= pluralize(@evaluation.errors.count, "error") %> :</h7>
+                <ul>
+                  <% @evaluation.errors.full_messages.each do |message| %>
+                    <li class="text-danger"><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <%= form.label :title, 'Año de Cursada', class: "control-label" %>
+          <%= form.collection_select(:course_id, @courses, :id, :anio,  {:include_blank => "Seleccione una Cursada"}, {:class=>'btn btn-secondary dropdown-toggle form-control'}) %>
+        </div>
+
+        <div class="form-group" >
+            <%= form.label :title, 'Descripción', class: "control-label" %>
+            <%= form.text_field :title, id: :evaluation_title, class: "form-control" %>
+        </div>
+
+        <div class="form-group" >
+            <%= form.label :evaluation_date, 'Fecha de Evaluación', class: "control-label" %>
+            <%= form.date_select :evaluation_date, id: :evaluation_evaluation_date, class: "form-control" %>
+        </div>
+
+        <div class="form-group" >
+            <%= form.label :minimum_note, 'Nota Mínima', class: "control-label" %>
+            <%= form.text_field :minimum_note, id: :evaluation_minimum_note, class: "form-control" %>
+        </div>
+
+        <div class="modal-footer">
+          <%= link_to 'Cancelar', evaluations_path %>
+          <%= form.submit "Confirmar", class: "btn btn-default btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
