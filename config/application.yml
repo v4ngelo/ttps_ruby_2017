@@ -1,3 +1,4 @@
+#This is only a sample file
 development:
   DB_USERNAME: postgres
   DB_PASSWORD: test123
