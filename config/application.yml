@@ -9,8 +9,8 @@ test:
   DB_IP: localhost
   DB_NAME: ttps_2017
 production:
-  DB_USERNAME: herrrthnajnscg
-  DB_PASSWORD: 02056b37f5a920af016c092ca26e3f56e5edefd22f6366578cfb0d48ff62c5fb
-  DB_IP: ec2-23-21-162-90.compute-1.amazonaws.com:5432
-  DB_NAME: da8mrfqd35ppn8
+  DB_USERNAME: 
+  DB_PASSWORD: 
+  DB_IP: 
+  DB_NAME: 
 
