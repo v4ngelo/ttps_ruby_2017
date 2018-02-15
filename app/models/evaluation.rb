@@ -1,5 +1,6 @@
 class Evaluation < ApplicationRecord
   belongs_to :course
+  has_many :evaluation_results, dependent: :restrict_with_error
   validates_associated :course
   validates :title, presence: true
   validates :evaluation_date, presence: true

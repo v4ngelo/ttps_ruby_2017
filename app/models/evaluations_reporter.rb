@@ -37,6 +37,7 @@ class EvaluationsReporter
     unless evaluation_results.empty?
       evaluation_results.each do |result|
         @report.add_student_result(StudentResult.new(result.student.name,
+                                                     result.student.surname,
                                                      result.evaluation.title,
                                                      result.evaluation.course.anio,
                                                      result.evaluation.evaluation_date,

@@ -10,7 +10,7 @@
     <th>Año de Cursada</th>
     <th>Fecha de Evaluacion</th>
     <th>Nota</th>
-    <th colspan="1"></th>
+    <th colspan="2"></th>
   </tr>
   </thead>
 
@@ -23,7 +23,8 @@
       <td><%= evaluation_result.evaluation.evaluation_date %></td>
       <td><%= evaluation_result.note %></td>
       <td><%= button_to "Editar", edit_evaluation_result_path(evaluation_result), :method => :get, class: "btn btn-sm btn-info" %>
-    </tr>
+      <td><%= link_to 'Eliminar', evaluation_result_path(evaluation_result), remote: true, :method => :delete,
+                      data: {confirm: "Quiere eliminar este resultado: #{evaluation_result.id} "}, :class => 'btn btn-sm btn-danger' %>    </tr>
   <% end %>
   </tbody>
 </table>

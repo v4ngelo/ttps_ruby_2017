@@ -55,9 +55,12 @@ class EvaluationsController < ApplicationController
   # DELETE /evaluations/1
   # DELETE /evaluations/1.json
   def destroy
-    @evaluation.destroy
-    respond_to do |format|
-      format.html { redirect_to action: "index", notice: 'Se eliminó la evaluación exitosamente.' }
+    if @evaluation.destroy
+      flash['success'] = "Evaluación eliminada correctamente."
+      redirect_to action: "index"
+    else
+      flash['error'] = "La evaluación no pudo ser eliminada. Existen Resultados que dependen de ella!"
+      redirect_to evaluations_path
     end
   end
 

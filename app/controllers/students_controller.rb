@@ -56,9 +56,12 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    @student.destroy
-    respond_to do |format|
-      format.html { redirect_to action: "index", notice: 'Se eliminó el estudiante exitosamente.' }
+    if @student.destroy
+      flash['success'] = "Alumno eliminado correctamente."
+      redirect_to action: "index"
+    else
+      flash['error'] = "El alumno no pudo ser eliminado. Tiene Resultados relacionados."
+      redirect_to students_path
     end
   end
 

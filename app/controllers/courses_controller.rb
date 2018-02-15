@@ -39,8 +39,13 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    Course.delete(params[:id])
-    redirect_to action: "index"
+    if Course.destroy(params[:id])
+      flash['success'] = "Cursada eliminada correctamente."
+      redirect_to action: "index"
+    else
+      flash['error'] = "La cursada no pudo ser eliminada. Existen Alumnos y Evaluaciones que dependen de ella!"
+      redirect_to courses_path
+    end
   end
 
   def show
@@ -48,8 +53,8 @@ class CoursesController < ApplicationController
   end
 
   private
-    def course_params
-      params.require(:course).permit(:id, :anio)
-    end
+  def course_params
+    params.require(:course).permit(:id, :anio)
+  end
 
 end
