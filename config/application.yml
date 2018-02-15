@@ -1,11 +1,11 @@
 development:
   DB_USERNAME: postgres
-  DB_PASSWORD: dock33341
+  DB_PASSWORD: test123
   DB_IP: localhost
   DB_NAME: ttps_2017
 test:
   DB_USERNAME: postgres
-  DB_PASSWORD: dock33341
+  DB_PASSWORD: test123
   DB_IP: localhost
   DB_NAME: ttps_2017
 production:
