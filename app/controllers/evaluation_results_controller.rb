@@ -1,4 +1,5 @@
 class EvaluationResultsController < ApplicationController
+  respond_to :html, :json
   before_action :authenticate_user!, unless: :devise_controller?
   before_action :set_evaluation_result, only: [:show, :edit, :update, :destroy]
 
@@ -31,12 +32,14 @@ class EvaluationResultsController < ApplicationController
   # PATCH/PUT /evaluation_results/1.json
   def update
     @students = Student.all
+
     respond_to do |format|
       if @evaluation_result.update(evaluation_result_params)
         format.html { redirect_to action: "index", notice: 'Se actualizó la nota exitosamente.' }
+        format.json { respond_with_bip(@evaluation_result) }
       else
-        format.html { render :edit }
-        format.json { render json: @evaluation_result.errors, status: :unprocessable_entity }
+        format.html { render :action => "index" }
+        format.json { respond_with_bip(@evaluation_result) }
       end
     end
   end

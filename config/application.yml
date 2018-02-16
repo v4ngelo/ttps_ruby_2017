@@ -1,7 +1,7 @@
 #This is only a sample file
 development:
   DB_USERNAME: postgres
-  DB_PASSWORD: test123
+  DB_PASSWORD: dock33341
   DB_IP: localhost
   DB_NAME: ttps_2017
 test:

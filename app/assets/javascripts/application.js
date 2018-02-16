@@ -12,13 +12,17 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require best_in_place
+//= require best_in_place.purr
+//= require jquery.purr
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
 //= require data-confirm-modal
 //= require_tree .
 
-$.ajaxSetup({
-    dataType: 'json'
+$(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
 });
 

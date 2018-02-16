@@ -22,6 +22,7 @@ gem 'devise'
 gem 'date_validator', '~> 0.9.0'
 gem 'validates_email_format_of'
 gem 'rails-i18n', '~> 5.0.0'
+gem 'best_in_place'
 
 # Use Capistrano for deployment
 #gem 'capistrano-rails', group: :development

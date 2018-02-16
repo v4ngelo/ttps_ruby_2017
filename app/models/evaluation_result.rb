@@ -4,7 +4,7 @@ class EvaluationResult < ApplicationRecord
   validates_associated :evaluation
   validates_associated :student
   validates :note, presence: true
-  validates :note, numericality: { only_integer: true }
+  validates :note, numericality: { only_integer: true }, :allow_nil => true
 
   before_create :setEvaluationStatus
   before_update :setEvaluationStatus
