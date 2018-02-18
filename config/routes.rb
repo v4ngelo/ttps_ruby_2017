@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
-    resources :evaluations, controller: 'evaluations'
-    resources :students, controller: 'students'
   end
+  resources :evaluations, controller: 'evaluations'
+  resources :students, controller: 'students'
   resources :evaluation_results
   resources :evaluation_result_reports
   root to: redirect('/users/sign_in')

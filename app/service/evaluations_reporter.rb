@@ -8,16 +8,18 @@ class EvaluationsReporter
     if(course_id.nil?)
       return @report
     end
-    evaluation_ids = get_evaluations_four_course(course_id)
-    student_results(evaluation_ids)
+    evaluation_ids = Evaluation.ids_by_course_id(course_id)
+    students = Student.joins(:course).where(course_id)
+    student_results(students)
     course_results(evaluation_ids)
+    @report.course_evaluations = Evaluation.by_evaluation_ids(evaluation_ids)
     return @report
   end
 
   private
 
   def course_results(evaluation_ids)
-    evaluations = Evaluation.joins(:course).where('evaluations.id' => evaluation_ids)
+    evaluations = Evaluation.by_evaluation_ids(evaluation_ids)
     unless evaluations.empty?
       evaluations.each do |eval|
         evaluations_results = EvaluationResult.joins(:evaluation).where(:evaluation_id => eval.id).pluck(:status)
@@ -32,22 +34,15 @@ class EvaluationsReporter
     end
   end
 
-  def student_results(evaluation_ids)
-    evaluation_results = EvaluationResult.includes(:evaluation).where(:evaluation_id => evaluation_ids).order('evaluations.evaluation_date')
-    unless evaluation_results.empty?
-      evaluation_results.each do |result|
-        @report.add_student_result(StudentResult.new(result.student.name,
-                                                     result.student.surname,
-                                                     result.evaluation.title,
-                                                     result.evaluation.course.anio,
-                                                     result.evaluation.evaluation_date,
-                                                     result.status))
+  def student_results(students)
+    unless students.empty?
+      students.each do |student|
+        evaluation_results_by_student = EvaluationResult.by_student_id_with_order(student.id, 'evaluations.evaluation_date')
+        @report.add_course_evaluation_result(StudentResult.new(student.name,
+                                                               student.surname,
+                                                               evaluation_results_by_student))
       end
     end
-  end
-
-  def get_evaluations_four_course(course_id)
-    Evaluation.where(course_id).pluck(:id)
   end
 
 end

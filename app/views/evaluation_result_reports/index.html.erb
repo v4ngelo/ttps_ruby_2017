@@ -16,35 +16,39 @@
   <h5>Resumen de Evaluaciones</h5>
   <table class="table table-striped table-sm table-bordered">
     <thead class="thead-dark">
-    <tr>
-      <th>Nombre</th>
-      <th>Examen</th>
-      <th>Año de Cursada</th>
-      <th>Fecha de Evaluacion</th>
-      <th>Nota</th>
-    </tr>
-    </thead>
-
-    <tbody>
     <% if @report.nil? then%>
+      <tr>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
       <tr>
         <td  colspan="5">
           <p>No hay datos para la opción seleccionada.</p>
         </td>
       </tr>
+      </tbody>
     <% else %>
-      <% @report.student_results.each do |result| %>
+      <tr>
+        <th> Nombre </th>
+        <% @report.course_evaluations.each do |evaluation| %>
+          <th><%= evaluation.title %></th>
+        <% end %>
+      </tr>
+      </tr>
+      </thead>
+      <tbody>
+      <% @report.course_evaluations_results.each do |student_result| %>
         <tr>
-          <td><%= full_name(result) %></td>
-          <td><%= result.evaluation_name %></td>
-          <td><%= result.course_year %></td>
-          <td><%= result.evaluation_date %></td>
-          <td><%= result.evaluation_note %></td>
+          <th><%= full_name(student_result) %> </th>
+          <% student_result.evaluation_results.each do |eval_result| %>
+            <td><%= eval_result.status %></td>
+          <% end %>
         </tr>
       <% end %>
+      </tbody>
     <% end %>
-    </tbody>
-  </table>
+    </table>
 
   <h5>Resumen de Cursada</h5>
 

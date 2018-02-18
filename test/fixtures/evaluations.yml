@@ -1,0 +1,35 @@
+evaluation_1_2017:
+  title: "Primer Parcial 1"
+  evaluation_date: 2017-09-11 11:02:57
+  minimum_note: 8
+  course: course_1
+
+evaluation_2_2017:
+  title: "Trabajo Integrador 1"
+  evaluation_date: 2017-12-12 11:02:57
+  minimum_note: 8
+  course: course_1
+
+evaluation_3_2017:
+  title: "Final 1"
+  evaluation_date: 2018-02-27 11:02:57
+  minimum_note: 6
+  course: course_1
+
+evaluation_1_2018:
+  title: "Primer Parcial 2"
+  evaluation_date: 2018-09-11 11:02:57
+  minimum_note: 8
+  course: course_2
+
+evaluation_2_2018:
+  title: "Trabajo Integrador 2"
+  evaluation_date: 2018-12-12 11:02:57
+  minimum_note: 8
+  course: course_2
+
+evaluation_3_2018:
+  title: "Final 2"
+  evaluation_date: 2019-02-27 11:02:57
+  minimum_note: 6
+  course: course_2

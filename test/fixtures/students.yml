@@ -1,0 +1,47 @@
+student_1_2017:
+  name: "Luke"
+  surname: "Skywalker"
+  dni: "12312312"
+  student_number: "1231"
+  email: "luke.skywalker@mail.com"
+  course: course_1
+
+student_2_2017:
+  name: "JarJar"
+  surname: "Binks"
+  dni: "321321321"
+  student_number: "3213"
+  email: "jarjar.binks@mail.com"
+  course: course_1
+
+student_3_2017:
+  name: "Leia"
+  surname: "Organa"
+  dni: "43243243"
+  student_number: "4343"
+  email: "leia.organa@mail.com"
+  course: course_1
+
+student_1_2018:
+  name: "Luke"
+  surname: "Skywalker"
+  dni: "12312111"
+  student_number: "1231"
+  email: "luke.skywalker@mail.com"
+  course: course_2
+
+student_2_2018:
+  name: "JarJar"
+  surname: "Binks"
+  dni: "321321111"
+  student_number: "3213"
+  email: "jarjar.binks@mail.com"
+  course: course_2
+
+student_3_2018:
+  name: "Leia"
+  surname: "Organa"
+  dni: "432432111"
+  student_number: "4343"
+  email: "leia.organa@mail.com"
+  course: course_2

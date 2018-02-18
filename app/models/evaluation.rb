@@ -11,6 +11,14 @@ class Evaluation < ApplicationRecord
 
   after_create :createStudentEvaluations
 
+  def self.ids_by_course_id(course_id)
+    Evaluation.where(course_id).pluck(:id)
+    end
+
+  def self.by_evaluation_ids(evaluation_ids)
+    Evaluation.joins(:course).where('evaluations.id' => evaluation_ids).order('evaluation_date')
+  end
+
   def createStudentEvaluations
     @students = Student.where(:course_id => course_id)
     @students.each do |student|

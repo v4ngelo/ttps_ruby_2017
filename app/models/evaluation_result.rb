@@ -9,11 +9,17 @@ class EvaluationResult < ApplicationRecord
   before_create :setEvaluationStatus
   before_update :setEvaluationStatus
 
-
-
   APPROVED = "Aprobado"
   DISAPPROVED = "Desaprobado"
   ABSENT = "Ausente"
+
+  def self.by_evaluation_ids_with_order(evaluation_ids, order)
+    EvaluationResult.includes(:evaluation).where(:evaluation_id => evaluation_ids).order(order)
+  end
+
+  def self.by_student_id_with_order(student_id, order)
+    EvaluationResult.includes(:evaluation).where(:student_id => student_id).order(order)
+  end
 
   def setEvaluationStatus
     if note == 0
@@ -25,4 +31,5 @@ class EvaluationResult < ApplicationRecord
          end
     end
   end
+
 end

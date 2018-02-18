@@ -1,0 +1,102 @@
+
+evaluation_result_course_1_2:
+  student: student_1_2017
+  evaluation: evaluation_2_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_3:
+  student: student_1_2017
+  evaluation: evaluation_3_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_4:
+  student: student_2_2017
+  evaluation: evaluation_1_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_5:
+  student: student_2_2017
+  evaluation: evaluation_2_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_6:
+  student: student_2_2017
+  evaluation: evaluation_3_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_7:
+  student: student_3_2017
+  evaluation: evaluation_1_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_8:
+  student: student_3_2017
+  evaluation: evaluation_2_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_1_9:
+  student: student_3_2017
+  evaluation: evaluation_3_2017
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_1:
+  student: student_1_2018
+  evaluation: evaluation_1_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_2:
+  student: student_1_2018
+  evaluation: evaluation_2_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_3:
+  student: student_1_2018
+  evaluation: evaluation_3_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_4:
+  student: student_2_2018
+  evaluation: evaluation_1_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_5:
+  student: student_2_2018
+  evaluation: evaluation_2_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_6:
+  student: student_2_2018
+  evaluation: evaluation_3_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_7:
+  student: student_3_2018
+  evaluation: evaluation_1_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_8:
+  student: student_3_2018
+  evaluation: evaluation_2_2018
+  status: "Ausente"
+  note: 0
+
+evaluation_result_course_2_9:
+  student: student_3_2018
+  evaluation: evaluation_3_2018
+  status: "Ausente"
+  note: 0
