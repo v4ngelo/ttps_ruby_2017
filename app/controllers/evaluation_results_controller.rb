@@ -6,7 +6,12 @@ class EvaluationResultsController < ApplicationController
   # GET /evaluation_results
   # GET /evaluation_results.json
   def index
-    @evaluation_results = EvaluationResult.includes(:evaluation).all.order('evaluations.evaluation_date')
+    if params.has_key?(:course)
+      @evaluation_results = EvaluationResult.includes(:evaluation).merge(Evaluation.where(:course_id => params[:course][:course_id])).order('evaluations.evaluation_date')
+    else
+      @evaluation_results = EvaluationResult.includes(:evaluation).all.order('evaluations.evaluation_date')
+    end
+
   end
 
   # GET /evaluation_results/1/edit
@@ -32,7 +37,6 @@ class EvaluationResultsController < ApplicationController
   # PATCH/PUT /evaluation_results/1.json
   def update
     @students = Student.all
-
     respond_to do |format|
       if @evaluation_result.update(evaluation_result_params)
         format.html { redirect_to action: "index", notice: 'Se actualizó la nota exitosamente.' }

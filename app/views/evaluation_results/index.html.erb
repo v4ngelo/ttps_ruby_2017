@@ -2,6 +2,15 @@
 
 <h3 class="min-margin">Resultados</h3>
 <hr/>
+<div class="form-row min-margin">
+  <div class="min-margin">
+    <label class="control-label">Año de Cursada</label>
+  </div>
+
+  <%= render partial: "shared/course_select", locals: { path: evaluation_results_path} %>
+
+</div>
+
 <table class="table table-striped table-sm table-bordered">
   <thead class="thead-dark">
   <tr>

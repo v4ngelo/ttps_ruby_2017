@@ -6,14 +6,9 @@
   <div class="min-margin">
     <label class="control-label">Año de Cursada</label>
   </div>
-  <%= form_with url: students_path, method: :get, local: true do |e| %>
-    <div class="col-md-6 min-margin">
-      <%= collection_select(:course, :course_id, Course.all, :id, :anio,  {:include_blank => "Cursadas"}, {:class=>'btn btn-secondary dropdown-toggle'}) %>
-    </div>
-    <div class="col-md-6 min-margin">
-      <%= e.submit "Filtrar", class: "btn btn-default btn-primary" %>
-    </div>
-  <% end %>
+
+  <%= render partial: "shared/course_select", locals: { path: students_path} %>
+
 </div>
 <hr/>
 <div class="min-margin">

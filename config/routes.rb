@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     root to: 'home#index', as: :authenticated_root
   end
 
-  resources :courses do
-  end
+  resources :courses
   resources :evaluations, controller: 'evaluations'
   resources :students, controller: 'students'
   resources :evaluation_results

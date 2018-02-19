@@ -1,0 +1,8 @@
+<%= form_with url: path, method: :get, local: true do |e| %>
+  <div class="col-md-6 min-margin">
+    <%= collection_select(:course, :course_id, Course.all, :id, :anio,  {:include_blank => "Cursadas"}, {:class=>'btn btn-secondary dropdown-toggle'}) %>
+  </div>
+  <div class="col-md-6  min-margin">
+    <%= e.submit "Filtrar", class: "btn btn-default btn-primary" %>
+  </div>
+<% end %>
