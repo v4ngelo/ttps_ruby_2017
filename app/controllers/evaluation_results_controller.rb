@@ -7,9 +7,9 @@ class EvaluationResultsController < ApplicationController
   # GET /evaluation_results.json
   def index
     if params.has_key?(:course)
-      @evaluation_results = EvaluationResult.includes(:evaluation).merge(Evaluation.where(:course_id => params[:course][:course_id])).order('evaluations.evaluation_date')
+      @evaluation_results = EvaluationResult.by_course_by_evaluation_date(params[:course][:course_id])
     else
-      @evaluation_results = EvaluationResult.includes(:evaluation).all.order('evaluations.evaluation_date')
+      @evaluation_results = EvaluationResult.order_by_evaluation_date;
     end
 
   end

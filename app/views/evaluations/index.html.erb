@@ -39,7 +39,7 @@
       <td><%= evaluation.minimum_note %></td>
       <td><%= button_to "Editar", edit_evaluation_path(evaluation.id), :method => :get, class: "btn btn-sm btn-info" %>
       <td><%= link_to 'Eliminar', evaluation_path(evaluation), remote: true, :method => :delete,
-                      data: {confirm: "Quiere eliminar esta evaluación: #{evaluation.id} "}, :class => 'btn btn-sm btn-danger' %>
+                      data: {confirm: "¿Quiere eliminar esta evaluación: #{evaluation.title}?"}, :class => 'btn btn-sm btn-danger' %>
       </td>
     </tr>
   <% end %>

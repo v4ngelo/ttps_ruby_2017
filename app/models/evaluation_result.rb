@@ -21,6 +21,14 @@ class EvaluationResult < ApplicationRecord
     EvaluationResult.includes(:evaluation).where(:student_id => student_id).order(order)
   end
 
+  def self.order_by_evaluation_date
+    EvaluationResult.includes(:evaluation).all.order('evaluations.evaluation_date')
+    end
+
+  def self.by_course_by_evaluation_date(course_id)
+    EvaluationResult.includes(:evaluation).merge(Evaluation.where(:course_id => course_id)).order('evaluations.evaluation_date')
+  end
+
   def setEvaluationStatus
     if note == 0
       self.status = ABSENT

@@ -38,7 +38,7 @@
         </a>
       </td>
       <td><%= link_to 'Eliminar', evaluation_result_path(evaluation_result), remote: true, :method => :delete,
-                      data: {confirm: "Quiere eliminar este resultado: #{evaluation_result.id} "}, :class => 'btn btn-sm btn-danger' %>    </tr>
+                      data: {confirm: "¿Quiere eliminar este resultado: #{evaluation_result.evaluation.title}, para el estudiante: #{evaluation_result.student.surname} ?"}, :class => 'btn btn-sm btn-danger' %>    </tr>
   <% end %>
   </tbody>
 </table>

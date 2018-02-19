@@ -21,7 +21,7 @@
       <td><%= course.anio %></td>
       <td><%= button_to "Editar", edit_course_path(course.id), :method => :get, class: "btn btn-sm btn-info" %>
       <td><%= link_to 'Borrar', course_path(course), remote: true, :method => :delete,
-                      data: {confirm: "Borrar Cursada: #{course.id} "}, :class => 'btn btn-sm btn-danger' %></td>
+                      data: {confirm: "¿Quiere eliminar la cursada: #{course.anio}?"}, :class => 'btn btn-sm btn-danger' %></td>
     </tr>
   <% end %>
 </table>
