@@ -39,7 +39,7 @@
       <td><%= student.email %>
       <td><%= button_to "Editar", edit_student_path(student.id), :method => :get, class: "btn btn-sm btn-info" %>
       <td><%= link_to "Eliminar", student_path(student), remote: true, :method => :delete,
-                      data: {confirm: "¿Quiere eliminar el estudiante: #{student.surname}, #{student.name} de la cursada?"}, :class => 'btn btn-sm btn-danger' %></td>
+                      data: {confirm: "¿Quiere eliminar el estudiante: >#{student.surname}, #{student.name} de la cursada?"}, :class => 'btn btn-sm btn-danger' %></td>
     </tr>
   <% end %>
   </tbody>

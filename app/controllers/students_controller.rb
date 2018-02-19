@@ -42,6 +42,7 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    @courses = Course.all
     @student = Student.find(params[:id])
     respond_to do |format|
       if @student.update(student_params)
@@ -56,23 +57,27 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    if @student.destroy
-      flash['success'] = "Alumno eliminado correctamente."
-      redirect_to action: "index"
-    else
+    begin
+      if @student.destroy
+        flash['success'] = "Alumno eliminado correctamente."
+        redirect_to action: "index"
+      else
+        flash['error'] = "El alumno no pudo ser eliminado. Tiene Resultados relacionados."
+      end
+    rescue ActiveRecord::InvalidForeignKey
       flash['error'] = "El alumno no pudo ser eliminado. Tiene Resultados relacionados."
-      redirect_to students_path
     end
+    redirect_to students_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_student
-      @student = Student.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_student
+    @student = Student.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def student_params
-      params.require(:student).permit(:course_id, :name, :surname, :dni, :student_number, :email)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def student_params
+    params.require(:student).permit(:course_id, :name, :surname, :dni, :student_number, :email)
+  end
 end

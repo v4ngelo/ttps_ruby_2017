@@ -41,6 +41,7 @@ class EvaluationsController < ApplicationController
   # PATCH/PUT /evaluations/1
   # PATCH/PUT /evaluations/1.json
   def update
+    @courses = Course.all
     @evaluation = Evaluation.find(params[:id])
     respond_to do |format|
       if @evaluation.update(evaluation_params)
